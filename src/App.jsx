@@ -100,7 +100,7 @@ const Hero = () => {
             <span className="text-sky-400">On Your Terms</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 font-light max-w-2xl">
-            Freelance flight instruction tailored to your schedule. Train in your own aircraft or a rental with a dedicated, safety-focused instructor.
+            Flight instruction tailored to your schedule. Train in your own aircraft or a rental with a dedicated, safety-focused instructor.
           </p>
           <div className="flex flex-col md:flex-row gap-4">
             <a href="#contact" className="bg-sky-500 hover:bg-sky-600 text-white px-8 py-4 rounded-lg font-bold text-lg flex items-center justify-center gap-2 transition-all hover:translate-y-[-2px]">
@@ -126,8 +126,8 @@ const ValueProps = () => {
   const props = [
     {
       icon: <Plane className="text-sky-400" size={40} />,
-      title: "Your Plane or Rental",
-      desc: "I come to you. We can train in your personal aircraft or I can guide you to the best rental fleets in DFW."
+      title: "Your Personal Aircraft",
+      desc: "I come to you. We can train in your personal aircraft whether you rent or own in DFW."
     },
     {
       icon: <Calendar className="text-sky-400" size={40} />,
@@ -145,9 +145,9 @@ const ValueProps = () => {
     <div id="how-it-works" className="py-24 bg-slate-50">
       <div className="mx-auto w-full max-w-screen-2xl px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why Choose Freelance?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why Choose Borowy Flight?</h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Break free from the rigid structures of large academies. Get an instructor who is personally invested in your success.
+            Train on your own terms. Get an instructor who is personally invested in your success.
           </p>
         </div>
         
@@ -196,10 +196,10 @@ const About = () => {
                 I'm Mac, a North Texas based flight instructor dedicated to creating safe, competent, and confident pilots.
               </p>
               <p>
-                My journey started with a fascination for aviation at a young age, leading me to graduate from the prestigious <span className="font-semibold text-slate-900">American Airlines Cadet Academy</span>. That rigorous training environment taught me the value of going above and beyond the minimum standards.
+                My journey started with a fascination for aviation at a young age, leading me to graduate from the <span className="font-semibold text-slate-900">American Airlines Cadet Academy</span>. That rigorous training environment taught me the value of going above and beyond the minimum standards.
               </p>
               <p>
-                As a freelance instructor, I bring that airline-quality discipline to a relaxed, personalized setting. My goal isn't just to help you pass a checkride—it's to give you the decision-making skills to fly your family and friends safely for years to come.
+                As a freelance instructor, I bring that discipline to a relaxed, personalized setting. My goal isn't just to help you pass a checkride—it's to give you the decision-making skills to fly your family, friends, or professionally for years to come.
               </p>
               
               <div className="flex flex-wrap gap-3 pt-4">
@@ -220,13 +220,13 @@ const About = () => {
 const Services = () => {
   const services = [
     {
-      title: "Private Pilot Training",
+      title: "Private Pilot",
       desc: "Your first step into aviation. Comprehensive ground and flight training to earn your wings.",
       image: flightOnCoastline,
     },
     {
       title: "Instrument Rating",
-      desc: "Master the clouds and complex airspace. Learn to fly solely by reference to instruments.",
+      desc: "Master the clouds. Learn to fly solely by reference to instruments.",
       image: nightTime,
     },
     {
@@ -362,7 +362,7 @@ const Contact = () => {
             <div className="relative z-10">
               <h3 className="text-3xl font-bold mb-6">Let's Fly</h3>
               <p className="text-slate-300 mb-8">
-                Ready to start your training or have questions about aircraft ownership? Reach out directly.
+                Ready to start your training or have any other questions? Reach out directly.
               </p>
               
               <div className="space-y-6">
@@ -413,7 +413,7 @@ const Contact = () => {
                     value={formData.firstName}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all"
-                    placeholder="John"
+                    placeholder="Mac"
                     required
                   />
                 </div>
@@ -425,7 +425,7 @@ const Contact = () => {
                     value={formData.lastName}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all"
-                    placeholder="Doe"
+                    placeholder="Borowy"
                     required
                   />
                 </div>
@@ -439,7 +439,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all"
-                  placeholder="john@example.com"
+                  placeholder="borowymac@gmail.com"
                   required
                 />
               </div>
