@@ -456,6 +456,7 @@ const Contact = () => {
                   <option>Instrument Rating</option>
                   <option>Commercial Pilot</option>
                   <option>Flight Review (BFR)</option>
+                  <option>Ground Instruction</option>
                   <option>Other / Consultation</option>
                 </select>
               </div>
