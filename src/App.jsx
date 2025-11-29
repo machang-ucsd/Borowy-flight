@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Plane, Calendar, Map, CheckCircle, Menu, X, ArrowRight, Instagram, Mail, Phone } from 'lucide-react';
+import maciejFlying from './assets/maciej_flying.jpg';
+import maciejHeadshot from './assets/maciej_borowy_headshot.jpg';
+import flightOnCoastline from './assets/flight_on_coastline.jpg';
+import nightTime from './assets/night_time.jpg';
+import planeInSky from './assets/plane_in_sky.jpg';
+import resourcesOnTable from './assets/resources_on_table.jpeg';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,7 +27,8 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-900 shadow-lg py-4' : 'bg-transparent py-6'}`}>
+    // Added 'top-0 left-0 right-0' to force the nav to the edges of the viewport
+    <nav className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-900 shadow-lg py-4' : 'bg-transparent py-6'}`}>
       <div className="mx-auto w-full max-w-screen-2xl px-6 flex justify-between items-center">
         <div className="text-2xl font-bold text-white tracking-wider flex items-center gap-2">
           <Plane className="rotate-45" size={24} />
@@ -36,7 +43,7 @@ const Navigation = () => {
             </a>
           ))}
           <a href="#contact" className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2 rounded-full font-semibold transition-all transform hover:scale-105">
-            Book Discovery
+            Book Session
           </a>
         </div>
 
@@ -70,11 +77,12 @@ const Navigation = () => {
 
 const Hero = () => {
   return (
-    <div className="relative h-screen flex items-center justify-center overflow-hidden">
+    // Changed grid to flex for better full-screen reliability
+    <div className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/src/assets/maciej_flying.jpg" 
+          src={maciejFlying} 
           alt="Cockpit view over coast" 
           className="w-full h-full object-cover"
         />
@@ -164,11 +172,11 @@ const About = () => {
   return (
     <div id="about" className="py-24 bg-white overflow-hidden">
       <div className="mx-auto w-full max-w-screen-2xl px-6">
-        <div className="flex flex-col md:flex-row items-center gap-16">
-          <div className="md:w-1/2 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16">
+          <div className="relative">
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
               <img 
-                src="/src/assets/maciej_borowy_headshot.jpg" 
+                src={maciejHeadshot} 
                 alt="Mac - Flight Instructor" 
                 className="w-full h-auto object-cover"
               />
@@ -177,7 +185,7 @@ const About = () => {
             <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-sky-100 rounded-full -z-0 hidden md:block"></div>
           </div>
           
-          <div className="md:w-1/2">
+          <div>
             <div className="inline-block bg-sky-100 text-sky-800 px-4 py-1 rounded-full text-sm font-bold mb-6">
               MEET YOUR INSTRUCTOR
             </div>
@@ -213,23 +221,23 @@ const Services = () => {
     {
       title: "Private Pilot Training",
       desc: "Your first step into aviation. Comprehensive ground and flight training to earn your wings.",
-      image: "/src/assets/flight_on_coastline.jpg" // Prop blur/flight view
+      image: flightOnCoastline,
     },
     {
       title: "Instrument Rating",
       desc: "Master the clouds and complex airspace. Learn to fly solely by reference to instruments.",
-      image: "/src/assets/night_time.jpg" // Night cockpit
+      image: nightTime,
     },
     {
       title: "Commercial Pilot",
       desc: "Take your flying to the professional level. Precision mastery for those seeking a career.",
-      image: "/src/assets/plane_in_sky.jpg" // City view
+      image: planeInSky,
     },
     {
       title: "Flight Reviews & Refreshers",
       desc: "Haven't flown in a while? We'll get you current, proficient, and confident again.",
-      image: "/src/assets/resources_on_table.jpeg" // Books/Charts
-    }
+      image: resourcesOnTable,
+    },
   ];
 
   return (
@@ -278,8 +286,8 @@ const Contact = () => {
   return (
     <div id="contact" className="py-24 bg-slate-50">
       <div className="mx-auto w-full max-w-screen-2xl px-6">
-        <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
-          <div className="md:w-5/12 bg-slate-900 p-10 text-white flex flex-col justify-between relative overflow-hidden">
+        <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-5">
+          <div className="md:col-span-2 bg-slate-900 p-10 text-white flex flex-col justify-between relative overflow-hidden">
             <div className="relative z-10">
               <h3 className="text-3xl font-bold mb-6">Let's Fly</h3>
               <p className="text-slate-300 mb-8">
@@ -319,12 +327,11 @@ const Contact = () => {
               </div>
             </div>
             
-            {/* Decorative circles */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
           </div>
           
-          <div className="md:w-7/12 p-10">
+          <div className="md:col-span-3 p-10">
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -407,7 +414,7 @@ const Footer = () => {
 
 const App = () => {
   return (
-    <div className="min-h-screen w-full bg-white font-sans text-slate-900">
+    <div className="min-h-screen w-full bg-white font-sans text-slate-900 overflow-x-hidden relative">
       <Navigation />
       <Hero />
       <ValueProps />
