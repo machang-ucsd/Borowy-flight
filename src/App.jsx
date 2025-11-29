@@ -283,6 +283,71 @@ const Services = () => {
 };
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    interest: 'Private Pilot Training',
+    aircraftAccess: '',
+  });
+  const [status, setStatus] = useState({ type: null, message: '' });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ type: 'loading', message: 'Sending your message...' });
+
+    try {
+      // Build the URL-encoded body that Google Forms expects
+      const formBody = new URLSearchParams({
+        'entry.424800689': formData.firstName,        // First Name
+        'entry.484310287': formData.lastName,         // Last Name
+        'entry.940221405': formData.email,            // Email
+        'entry.2005779949': formData.interest,        // Interest
+        'entry.1996330512': formData.aircraftAccess,  // Aircraft Access
+      });
+
+      await fetch(
+        'https://docs.google.com/forms/d/e/1FAIpQLSdnLTvMwB5uyZNbSE2uLj_qoUiCeAOkw354cTYi32UOTb5I0w/formResponse',
+        {
+          method: 'POST',
+          mode: 'no-cors', // required for Google Forms from frontend
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: formBody.toString(),
+        }
+      );
+
+      // With no-cors we can’t inspect the response, so assume success if no error thrown
+      setStatus({
+        type: 'success',
+        message: 'Thanks for reaching out! Mac will get back to you shortly.',
+      });
+
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        interest: 'Private Pilot Training',
+        aircraftAccess: '',
+      });
+    } catch (error) {
+      console.error(error);
+      setStatus({
+        type: 'error',
+        message:
+          'Something went wrong sending your message. Please try again, or reach out directly via phone or email.',
+      });
+    }
+  };
   return (
     <div id="contact" className="py-24 bg-slate-50">
       <div className="mx-auto w-full max-w-screen-2xl px-6">
@@ -332,26 +397,55 @@ const Contact = () => {
           </div>
           
           <div className="md:col-span-3 p-10">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">First Name</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all" placeholder="John" />
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all"
+                    placeholder="John"
+                    required
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Last Name</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all" placeholder="Doe" />
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all"
+                    placeholder="Doe"
+                    required
+                  />
                 </div>
               </div>
               
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
-                <input type="email" className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all" placeholder="john@example.com" />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all"
+                  placeholder="john@example.com"
+                  required
+                />
               </div>
 
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">I'm interested in...</label>
-                <select className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all text-slate-600">
+                <select
+                  name="interest"
+                  value={formData.interest}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none transition-all text-slate-600"
+                >
                   <option>Private Pilot Training</option>
                   <option>Instrument Rating</option>
                   <option>Commercial Pilot</option>
@@ -364,15 +458,43 @@ const Contact = () => {
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Do you have access to an aircraft?</label>
                 <div className="flex gap-6 mt-2">
                   <label className="flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="aircraft" className="text-sky-500 focus:ring-sky-500" />
+                    <input
+                      type="radio"
+                      name="aircraftAccess"
+                      value="own"
+                      checked={formData.aircraftAccess === 'own'}
+                      onChange={handleChange}
+                      className="text-sky-500 focus:ring-sky-500"
+                    />
                     <span className="text-slate-600">Yes, I own one</span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="aircraft" className="text-sky-500 focus:ring-sky-500" />
+                    <input
+                      type="radio"
+                      name="aircraftAccess"
+                      value="rent"
+                      checked={formData.aircraftAccess === 'rent'}
+                      onChange={handleChange}
+                      className="text-sky-500 focus:ring-sky-500"
+                    />
                     <span className="text-slate-600">No, I need to rent</span>
                   </label>
                 </div>
               </div>
+
+              {status.type && (
+                <div
+                  className={`text-sm mb-2 ${
+                    status.type === 'success'
+                      ? 'text-emerald-600'
+                      : status.type === 'error'
+                      ? 'text-red-600'
+                      : 'text-slate-500'
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
 
               <button className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-lg transition-all transform active:scale-95 shadow-lg shadow-slate-900/20">
                 Send Message
@@ -399,8 +521,8 @@ const Footer = () => {
           </div>
           
           <div className="flex gap-6 mb-6 md:mb-0">
-            <a href="#" className="hover:text-white transition-colors">Instagram</a>
-            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+            {/* <a href="#" className="hover:text-white transition-colors">Instagram</a>
+            <a href="#" className="hover:text-white transition-colors">LinkedIn</a> */}
           </div>
 
           <div className="text-sm">
