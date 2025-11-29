@@ -22,7 +22,7 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-900 shadow-lg py-4' : 'bg-transparent py-6'}`}>
-      <div className="container mx-auto px-6 flex justify-between items-center">
+      <div className="mx-auto w-full max-w-screen-2xl px-6 flex justify-between items-center">
         <div className="text-2xl font-bold text-white tracking-wider flex items-center gap-2">
           <Plane className="rotate-45" size={24} />
           BOROWY FLIGHT
@@ -81,7 +81,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 text-center md:text-left">
+      <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-6 text-center md:text-left">
         <div className="max-w-3xl">
           <div className="inline-block bg-sky-500/20 text-sky-300 px-4 py-1 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm border border-sky-500/30">
             Based in North Texas
@@ -134,7 +134,7 @@ const ValueProps = () => {
 
   return (
     <div id="how-it-works" className="py-24 bg-slate-50">
-      <div className="container mx-auto px-6">
+      <div className="mx-auto w-full max-w-screen-2xl px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why Choose Freelance?</h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -163,7 +163,7 @@ const ValueProps = () => {
 const About = () => {
   return (
     <div id="about" className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-6">
+      <div className="mx-auto w-full max-w-screen-2xl px-6">
         <div className="flex flex-col md:flex-row items-center gap-16">
           <div className="md:w-1/2 relative">
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
@@ -234,7 +234,7 @@ const Services = () => {
 
   return (
     <div id="services" className="py-24 bg-slate-900 text-white">
-      <div className="container mx-auto px-6">
+      <div className="mx-auto w-full max-w-screen-2xl px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <div>
             <h2 className="text-4xl font-bold mb-4">Training Services</h2>
@@ -277,8 +277,8 @@ const Services = () => {
 const Contact = () => {
   return (
     <div id="contact" className="py-24 bg-slate-50">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+      <div className="mx-auto w-full max-w-screen-2xl px-6">
+        <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
           <div className="md:w-5/12 bg-slate-900 p-10 text-white flex flex-col justify-between relative overflow-hidden">
             <div className="relative z-10">
               <h3 className="text-3xl font-bold mb-6">Let's Fly</h3>
@@ -381,7 +381,7 @@ const Contact = () => {
 const Footer = () => {
   return (
     <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
-      <div className="container mx-auto px-6">
+      <div className="mx-auto w-full max-w-screen-2xl px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <div className="text-xl font-bold text-white tracking-wider flex items-center gap-2 mb-2">
@@ -407,7 +407,7 @@ const Footer = () => {
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen w-full bg-white font-sans text-slate-900">
       <Navigation />
       <Hero />
       <ValueProps />
