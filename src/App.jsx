@@ -6,6 +6,7 @@ import flightOnCoastline from './assets/flight_on_coastline.jpg';
 import nightTime from './assets/night_time.jpg';
 import planeInSky from './assets/plane_in_sky.jpg';
 import resourcesOnTable from './assets/resources_on_table.jpeg';
+import wings from './assets/wings.jpg'
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -236,8 +237,13 @@ const Services = () => {
     {
       title: "Flight Reviews & Refreshers",
       desc: "Haven't flown in a while? We'll get you current, proficient, and confident again.",
-      image: resourcesOnTable,
+      image: wings,
     },
+    {
+      title: "Ground Instruction",
+      desc: "Dive deep into a variety of topics, from theory and procedure to regulations and charts! Offering practical, applicable aviation knowledge that will lead to success.",
+      image: resourcesOnTable,
+    }
   ];
 
   return (
