@@ -74,7 +74,7 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="image_b6b350.png" 
+          src="/src/assets/maciej_flying.jpg" 
           alt="Cockpit view over coast" 
           className="w-full h-full object-cover"
         />
@@ -168,7 +168,7 @@ const About = () => {
           <div className="md:w-1/2 relative">
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
               <img 
-                src="image_b6b354.png" 
+                src="/src/assets/maciej_borowy_headshot.jpg" 
                 alt="Mac - Flight Instructor" 
                 className="w-full h-auto object-cover"
               />
@@ -213,22 +213,22 @@ const Services = () => {
     {
       title: "Private Pilot Training",
       desc: "Your first step into aviation. Comprehensive ground and flight training to earn your wings.",
-      image: "image_b6ba5c.png" // Prop blur/flight view
+      image: "/src/assets/flight_on_coastline.jpg" // Prop blur/flight view
     },
     {
       title: "Instrument Rating",
       desc: "Master the clouds and complex airspace. Learn to fly solely by reference to instruments.",
-      image: "image_b6bad4.png" // Night cockpit
+      image: "/src/assets/night_time.jpg" // Night cockpit
     },
     {
       title: "Commercial Pilot",
       desc: "Take your flying to the professional level. Precision mastery for those seeking a career.",
-      image: "image_b6b338.png" // City view
+      image: "/src/assets/plane_in_sky.jpg" // City view
     },
     {
       title: "Flight Reviews & Refreshers",
       desc: "Haven't flown in a while? We'll get you current, proficient, and confident again.",
-      image: "image_b6b333.png" // Books/Charts
+      image: "/src/assets/resources_on_table.jpeg" // Books/Charts
     }
   ];
 
