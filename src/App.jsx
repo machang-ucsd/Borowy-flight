@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plane, Calendar, Map, CheckCircle, Menu, X, ArrowRight, Instagram, Mail, Phone } from 'lucide-react';
+import { Calendar, Map, CheckCircle, Menu, X, ArrowRight, Instagram, Mail, Phone, Plane } from 'lucide-react';
 import maciejFlying from './assets/maciej_flying.jpg';
 import maciejHeadshot from './assets/maciej_borowy_headshot.jpg';
 import flightOnCoastline from './assets/flight_on_coastline.jpg';
@@ -7,6 +7,7 @@ import nightTime from './assets/night_time.jpg';
 import planeInSky from './assets/plane_in_sky.jpg';
 import resourcesOnTable from './assets/resources_on_table.jpeg';
 import wings from './assets/wings.jpg'
+import borowyLogo from './assets/logo.svg';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,9 +32,15 @@ const Navigation = () => {
     // Added 'top-0 left-0 right-0' to force the nav to the edges of the viewport
     <nav className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-900 shadow-lg py-4' : 'bg-transparent py-6'}`}>
       <div className="mx-auto w-full max-w-screen-2xl px-6 flex justify-between items-center">
-        <div className="text-2xl font-bold text-white tracking-wider flex items-center gap-2">
-          <Plane className="rotate-45" size={24} />
-          BOROWY FLIGHT
+        <div className="text-2xl font-bold text-white tracking-wider flex items-center gap-3">
+          <img
+            src={borowyLogo}
+            alt="Borowy Flight logo"
+            className="w-8 h-8"
+          />
+          <span className="leading-none md:flex align-items:center">
+            BOROWY FLIGHT
+          </span>
         </div>
 
         {/* Desktop Nav */}
@@ -125,7 +132,13 @@ const Hero = () => {
 const ValueProps = () => {
   const props = [
     {
-      icon: <Plane className="text-sky-400" size={40} />,
+      icon: (
+        <img
+          src={borowyLogo}
+          alt="Personal aircraft icon"
+          className="w-12 h-12"
+        />
+      ),
       title: "Your Personal Aircraft",
       desc: "I come to you. We can train in your personal aircraft whether you rent or own in DFW."
     },
@@ -521,8 +534,14 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <div className="text-xl font-bold text-white tracking-wider flex items-center gap-2 mb-2">
-              <Plane className="rotate-45" size={20} />
-              BOROWY FLIGHT
+              <img
+                src={borowyLogo}
+                alt="Borowy Flight logo"
+                className="w-8 h-8"
+              />
+              <span className="whitespace-nowrap">
+                BOROWY FLIGHT
+              </span>
             </div>
             <p className="text-sm">Safe. Personal. Professional.</p>
           </div>
