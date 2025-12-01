@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Map, CheckCircle, Menu, X, ArrowRight, Instagram, Mail, Phone, Plane } from 'lucide-react';
-import maciejFlying from './assets/maciej_flying.jpg';
-import maciejHeadshot from './assets/maciej_borowy_headshot.jpg';
-import flightOnCoastline from './assets/flight_on_coastline.jpg';
-import nightTime from './assets/night_time.jpg';
-import planeInSky from './assets/plane_in_sky.jpg';
-import resourcesOnTable from './assets/resources_on_table.jpeg';
-import wings from './assets/wings.jpg'
+import maciejFlying from './assets/maciej_flying.webp';
+import maciejHeadshot from './assets/maciej_borowy_headshot.webp';
+import flightOnCoastline from './assets/flight_on_coastline.webp';
+import nightTime from './assets/night_time.webp';
+import planeInSky from './assets/plane_in_sky.webp';
+import resourcesOnTable from './assets/resources_on_table.webp';
+import wings from './assets/wings.webp'
 import borowyLogo from './assets/logo.svg';
 
 const Navigation = () => {
