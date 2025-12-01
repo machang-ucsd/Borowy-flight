@@ -485,6 +485,7 @@ const Contact = () => {
                       checked={formData.aircraftAccess === 'own'}
                       onChange={handleChange}
                       className="text-sky-500 focus:ring-sky-500"
+                      required
                     />
                     <span className="text-slate-600">Yes, I own one</span>
                   </label>
@@ -496,6 +497,7 @@ const Contact = () => {
                       checked={formData.aircraftAccess === 'rent'}
                       onChange={handleChange}
                       className="text-sky-500 focus:ring-sky-500"
+                      required
                     />
                     <span className="text-slate-600">No, I need to rent</span>
                   </label>
