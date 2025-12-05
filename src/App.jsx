@@ -132,13 +132,7 @@ const Hero = () => {
 const ValueProps = () => {
   const props = [
     {
-      icon: (
-        <img
-          src={borowyLogo}
-          alt="Personal aircraft icon"
-          className="w-12 h-12"
-        />
-      ),
+      icon: <Plane className="text-sky-400" size={40} />,
       title: "Your Personal Aircraft",
       desc: "I come to you. We can train in your personal aircraft whether you rent or own in DFW."
     },
