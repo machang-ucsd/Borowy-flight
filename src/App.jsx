@@ -103,7 +103,7 @@ const Hero = () => {
             Based in North Texas
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Master the Skies <br/>
+            Master the Skies! <br/>
             <span className="text-sky-400">On Your Terms</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 font-light max-w-2xl">
